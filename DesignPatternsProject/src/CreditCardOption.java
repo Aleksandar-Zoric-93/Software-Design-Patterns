@@ -13,13 +13,11 @@ public class CreditCardOption extends User implements PaymentOption {
     private String cardNumber;
     private String cvv;
     private String expiryDate;
-
+    
     public CreditCardOption(String ccNum, String cvv, String expiryDate) {
 
         this.cardNumber = ccNum;
-
         this.cvv = cvv;
-
         this.expiryDate = expiryDate;
 
     }
@@ -44,6 +42,7 @@ public class CreditCardOption extends User implements PaymentOption {
     void setAddress() {
          System.out.println("Address: Main Street, Florida");
     }
+
 
   
 }

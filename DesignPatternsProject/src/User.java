@@ -13,12 +13,11 @@ public abstract class User {
     abstract void setAccNum();
     abstract void setAddress();
     
-    
     public final void createUser()
     {
         setName();
         setAccNum();
         setAddress();
     }
-    
+       
 }
