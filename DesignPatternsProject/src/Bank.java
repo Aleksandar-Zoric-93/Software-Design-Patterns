@@ -23,11 +23,11 @@ public abstract class Bank {
  
     private BankAccountType accType = null;
  
-    public BankAccountType getModel() {
+    public BankAccountType getAccountType() {
         return accType;
     }
  
-    public void setModel(BankAccountType accType) {
+    public void setAccountType(BankAccountType accType) {
         this.accType = accType;
     }
 }
