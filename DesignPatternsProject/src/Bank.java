@@ -12,10 +12,10 @@ public abstract class Bank {
     
     public Bank(BankAccountType accType) {
         this.accType = accType;
-        arrangeParts();
+        arrangeAccounts();
     }
     
-        private void arrangeParts() {
+        private void arrangeAccounts() {
         System.out.println("Bank account type: ");
     }
  
