@@ -12,11 +12,13 @@ public class Item {
 
     private String itemCode;
     private int price;
+    private User user;
 
-    public Item(String upc, int cost) 
+    public Item(User user, String upc, int cost) 
     {
         this.itemCode = upc;
         this.price = cost;
+        this.user = user;
     }
 
     public String getUpcCode() 

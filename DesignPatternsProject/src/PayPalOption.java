@@ -8,7 +8,7 @@
  *
  * @author Aleks
  */
-public class PayPalOption implements PaymentOption {
+public class PayPalOption extends User implements PaymentOption {
 
     private String email;
     private String password;
@@ -21,7 +21,25 @@ public class PayPalOption implements PaymentOption {
 
     public void pay(int amount) 
     {
-        System.out.println(amount + " paid using Paypal.");
+        int extraCharge = 1;
+        amount += extraCharge;
+        System.out.println("€" + amount + " paid using Paypal.");
     }
 
+    @Override
+    void setName() {
+         System.out.println("Name: Tom Briggs");
+    }
+
+    @Override
+    void setAccNum() {
+        System.out.println("Account Number: 54432327543");
+    }
+
+    @Override
+    void setAddress() {
+        System.out.println("Address: Queens, New York");
+    }
+
+    
 }

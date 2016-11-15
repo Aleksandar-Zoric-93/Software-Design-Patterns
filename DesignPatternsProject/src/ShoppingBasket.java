@@ -37,8 +37,9 @@ public class ShoppingBasket {
         
         for (Item item : items) 
         {
-            sum += item.getPrice();
+           sum += item.getPrice();
         }
+        //return sum;
         return sum;
     }
 

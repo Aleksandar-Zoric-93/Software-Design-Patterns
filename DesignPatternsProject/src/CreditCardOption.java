@@ -8,16 +8,13 @@
  *
  * @author Aleks
  */
-public class CreditCardOption implements PaymentOption {
+public class CreditCardOption extends User implements PaymentOption {
 
-    private String nameOnCard;
     private String cardNumber;
     private String cvv;
     private String expiryDate;
 
-    public CreditCardOption(String nm, String ccNum, String cvv, String expiryDate) {
-
-        this.nameOnCard = nm;
+    public CreditCardOption(String ccNum, String cvv, String expiryDate) {
 
         this.cardNumber = ccNum;
 
@@ -29,7 +26,24 @@ public class CreditCardOption implements PaymentOption {
 
     public void pay(int amount) {
 
-        System.out.println(amount + " paid with Credit Card.");
+        System.out.println("€" + amount + " paid with Credit Card.");
 
     }
+
+    @Override
+    void setName() {
+         System.out.println("Name: Joe Bloggs");
+    }
+
+    @Override
+    void setAccNum() {
+        System.out.println("Account Number: 67756645342");
+    }
+
+    @Override
+    void setAddress() {
+         System.out.println("Address: Main Street, Florida");
+    }
+
+  
 }

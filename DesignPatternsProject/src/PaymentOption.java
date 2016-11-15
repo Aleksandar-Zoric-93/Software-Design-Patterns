@@ -9,6 +9,5 @@
  * @author Aleks
  */
 public interface PaymentOption {
-    public void pay(int amount);
-    
+    public void pay(int amount);       
 }
