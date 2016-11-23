@@ -7,6 +7,7 @@
 /**
  *
  * @author Aleks
+ * Facade Pattern
  */
 public class SavingsAccount extends Bank {
      public SavingsAccount() {

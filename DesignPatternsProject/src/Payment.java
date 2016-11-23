@@ -1,5 +1,4 @@
 
-
 /*
 STRATEGY PATTERN:
 Strategy pattern is used when we have multiple algorithms for a specific task 
@@ -25,12 +24,20 @@ in the bank account creating process without touching the composing classes i.e 
 FACADE PATTERN:
 Facade pattern hides the complexities of the system and provides an interface to the client using which the client can access the system.
 This pattern involves a single class which provides simplified methods required by client and delegates calls to methods of existing system classes.
+Using facade to create different type of users i.e. checking account user, savings account user
  */
  /*
 SINGLETON PATTERN:
 The Singleton's purpose is to control object creation, limiting the number of objects to only one. 
 Since there is only one Singleton instance, any instance fields of a Singleton will occur only once per class.
 This class demonstrates how Singleton is used and the PaymentGUI class shows how I created a Payment object.
+Lazy instantiation.  
+ */
+/*
+DECORATOR PATTERN:
+Decorator pattern allows a user to add new functionality to an existing object without altering its structure.
+It acts as a wrapper class to an existing class we may have.  In this case, I am going to assign a bank name to each user
+without altering the BankUserType interface. 
  */
 
 public class Payment {
@@ -49,7 +56,7 @@ public class Payment {
     }
 
     protected static void displayAllData() {
-        ShoppingBasket basket = new ShoppingBasket();
+        ShoppingBasket basket = new ShoppingBasket();       
         User creditUser = new CreditCardOption("8993104687042358", "342", "12/17");
         User paypalUser = new PayPalOption("stone@meekness.com", "password");
 
@@ -61,6 +68,10 @@ public class Payment {
 
         UserIDGenerator IDGenerator = new UserIDGenerator();
         IDGenerator.setCheckingAccUser();
+        
+        BankUserType checkingAccBankName = new BankNameDecorator(new CheckingAccountUser());
+        checkingAccBankName.assign();
+        
         paypalUser.createUser();
         //pay by paypal
         basket.pay(new PayPalOption("stone@meekness.com", "password"));
@@ -70,6 +81,9 @@ public class Payment {
         System.out.println("\n*****************************************************\n");
 
         IDGenerator.setSavingsAccUser();
+        
+        BankUserType savingsAccBankName = new BankNameDecorator(new SavingsAccountUser());
+        savingsAccBankName.assign();
         creditUser.createUser();
         //pay by credit card
         basket.pay(new CreditCardOption("8993104687042358", "342", "12/17"));
@@ -86,6 +100,9 @@ public class Payment {
         Item item1 = new Item(creditUser, "8743", 23);
         basket.addItem(item1);
 
+        BankUserType savingsAccBankName = new BankNameDecorator(new SavingsAccountUser());
+        savingsAccBankName.assign();
+        
         creditUser.createUser();
         //pay by credit card
         basket.pay(new CreditCardOption("8993104687042358", "342", "12/17"));
@@ -102,6 +119,9 @@ public class Payment {
         Item item2 = new Item(paypalUser, "3247", 15);
         basket.addItem(item2);
 
+        BankUserType checkingAccBankName = new BankNameDecorator(new CheckingAccountUser());
+        checkingAccBankName.assign();
+        
         paypalUser.createUser();
         //pay by paypal
         basket.pay(new PayPalOption("stone@meekness.com", "password"));

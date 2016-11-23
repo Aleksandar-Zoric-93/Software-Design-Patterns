@@ -7,7 +7,8 @@
 /**
  *
  * @author Aleks
+ * Facade Pattern
  */
 public interface BankUserType {
-    void setID();
+    void assign();
 }

@@ -7,6 +7,7 @@
 /**
  *
  * @author Aleks
+ * Facade Pattern
  */
 public class UserIDGenerator {
     private BankUserType checkingAccUser;
@@ -19,12 +20,12 @@ public class UserIDGenerator {
     }
     
     public void setCheckingAccUser()
-    {
-        checkingAccUser.setID();
+    {        
+        checkingAccUser.assign();
     }
     
     public void setSavingsAccUser()
     {
-        savingsAccUser.setID();
+        savingsAccUser.assign();
     }
 }

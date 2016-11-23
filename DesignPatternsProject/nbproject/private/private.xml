@@ -3,12 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Aleks/Desktop/DesignPatterns/DesignPatternsProject/src/CreditCardOption.java</file>
+            <file>file:/C:/Users/Aleks/Desktop/DesignPatterns/DesignPatternsProject/src/BankUserType.java</file>
+            <file>file:/C:/Users/Aleks/Desktop/DesignPatterns/DesignPatternsProject/src/BankNameDecorator.java</file>
             <file>file:/C:/Users/Aleks/Desktop/DesignPatterns/DesignPatternsProject/src/Payment.java</file>
-            <file>file:/C:/Users/Aleks/Desktop/DesignPatterns/DesignPatternsProject/src/User.java</file>
+            <file>file:/C:/Users/Aleks/Desktop/DesignPatterns/DesignPatternsProject/src/Bank.java</file>
             <file>file:/C:/Users/Aleks/Desktop/DesignPatterns/DesignPatternsProject/src/UserIDGenerator.java</file>
-            <file>file:/C:/Users/Aleks/Desktop/DesignPatterns/DesignPatternsProject/src/PaymentGUI.java</file>
-            <file>file:/C:/Users/Aleks/Desktop/DesignPatterns/DesignPatternsProject/src/PaymentOption.java</file>
+            <file>file:/C:/Users/Aleks/Desktop/DesignPatterns/DesignPatternsProject/src/BankUserTypeDecorator.java</file>
         </group>
     </open-files>
 </project-private>
