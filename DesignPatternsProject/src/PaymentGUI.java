@@ -13,6 +13,7 @@ public class PaymentGUI extends JFrame {   // JFrame instead of Frame
     private final JButton creditUserBtn;
     private final JButton paypalUserBtn;
     private final JButton displayAllBtn;
+    private final JButton displayEmployee;
     private final JLabel title;
 
     public PaymentGUI() {
@@ -36,6 +37,9 @@ public class PaymentGUI extends JFrame {   // JFrame instead of Frame
 
         displayAllBtn = new JButton("Display All Data");
         cp.add(displayAllBtn);
+        
+        displayEmployee = new JButton("Display All Employees");
+        cp.add(displayEmployee);
 
         creditUserBtn.addActionListener((ActionEvent evt) -> {
             Payment instance = Payment.getInstance();
@@ -52,6 +56,13 @@ public class PaymentGUI extends JFrame {   // JFrame instead of Frame
         displayAllBtn.addActionListener((ActionEvent evt) -> {
             Payment instance = Payment.getInstance();
             instance.displayAllData();
+            System.out.println("\n\n=================================================");
+        });
+        
+        
+         displayEmployee.addActionListener((ActionEvent evt) -> {
+            Payment instance = Payment.getInstance();
+            instance.displayAllEmployees();
             System.out.println("\n\n=================================================");
         });
 

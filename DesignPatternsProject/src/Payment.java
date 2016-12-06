@@ -43,6 +43,7 @@ without altering the BankUserType interface.
 public class Payment {
 
     private static Payment instance = null;
+    private static int check = 0;
 
     private Payment() {
         // Exists only to defeat instantiation.
@@ -94,20 +95,24 @@ public class Payment {
     protected static void displayCreditUser() {
         ShoppingBasket basket = new ShoppingBasket();
         UserIDGenerator IDGenerator = new UserIDGenerator();
-        IDGenerator.setSavingsAccUser();
+        IDGenerator.setSavingsAccUser();      
+        
         User creditUser = new CreditCardOption("8993104687042358", "342", "12/17");
-
         Item item1 = new Item(creditUser, "8743", 23);
         basket.addItem(item1);
-
+      
         BankUserType savingsAccBankName = new BankNameDecorator(new SavingsAccountUser());
         savingsAccBankName.assign();
         
+        System.out.println("-----------------------------------------");
         creditUser.createUser();
         //pay by credit card
         basket.pay(new CreditCardOption("8993104687042358", "342", "12/17"));
         System.out.println("-----------------------------------------");
         System.out.println(BankFactory.buildBankAccount(BankAccountType.SAVINGS_ACC));
+        System.out.println("-----------------------------------------");
+        check = 2;
+        displayAllEmployees();
     }
 
     protected static void displayPayPalUser() {
@@ -122,11 +127,45 @@ public class Payment {
         BankUserType checkingAccBankName = new BankNameDecorator(new CheckingAccountUser());
         checkingAccBankName.assign();
         
+         System.out.println("-----------------------------------------");
         paypalUser.createUser();
         //pay by paypal
         basket.pay(new PayPalOption("stone@meekness.com", "password"));
         System.out.println("-----------------------------------------");
         System.out.println(BankFactory.buildBankAccount(BankAccountType.CHECKING_ACC));
+        System.out.println("-----------------------------------------");
+        check = 1;
+        displayAllEmployees();
     }
+    
+    
+    protected static void displayAllEmployees() {
 
+        Employee bankManagerChecking = new Employee("Ger", "Manager", 50000);
+        Employee bankTellerChecking = new Employee("Tim", "Bank Teller", 30000);
+        Employee clerkChecking = new Employee("Mike", "Clerk", 25000);
+
+        Employee bankManagerSavings = new Employee("Shaun", "Manager", 45000);
+        Employee bankTellerSavings = new Employee("Tom", "Bank Teller", 15000);
+        Employee clerkSavings = new Employee("Barack", "Clerk", 25000);
+
+        bankManagerChecking.add(bankTellerChecking);
+        bankManagerChecking.add(clerkChecking);
+
+        bankManagerSavings.add(bankTellerSavings);
+        bankManagerSavings.add(clerkSavings);
+
+        if (check == 1) {
+            for (Employee checkingEmployee : bankManagerChecking.getEmployees()) {
+                System.out.println(checkingEmployee);
+            }
+        }
+
+        if (check == 2) {
+            for (Employee savingsEmployee : bankManagerSavings.getEmployees()) {
+                System.out.println(savingsEmployee);
+            }
+        }
+    }
+       
 }
