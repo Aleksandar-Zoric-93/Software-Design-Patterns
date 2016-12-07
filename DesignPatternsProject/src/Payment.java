@@ -1,45 +1,4 @@
 
-/*
-STRATEGY PATTERN:
-Strategy pattern is used when we have multiple algorithms for a specific task 
-and client decides the actual implementation to be used at runtime.
-In this example the specific task is to pay for an item, and we have two
-implementations to be used at runtime, these implementations are the two
-different methods the client chooses to pay with.
- */
- /*
-TEMPLATE PATTERN:
-Define the skeleton of an algorithm in an operation, deferring some steps to client subclasses.
-If you look in the User class, the template method is demonstrated there.
-By deferring steps to create a user, which is displayed once we run the Payment class.
- */
- /*
-FACTORY METHOD PATTERN:
-Define an interface for creating an object, but let subclasses decide which class to instantiate. 
-Factory Method lets a class defer instantiation to subclasses.  As you can see, BankFactory is able to
-return any type of Bank instance it is requested for.  This will help us if changes need to be made
-in the bank account creating process without touching the composing classes i.e classes using BankFactory
- */
- /*
-FACADE PATTERN:
-Facade pattern hides the complexities of the system and provides an interface to the client using which the client can access the system.
-This pattern involves a single class which provides simplified methods required by client and delegates calls to methods of existing system classes.
-Using facade to create different type of users i.e. checking account user, savings account user
- */
- /*
-SINGLETON PATTERN:
-The Singleton's purpose is to control object creation, limiting the number of objects to only one. 
-Since there is only one Singleton instance, any instance fields of a Singleton will occur only once per class.
-This class demonstrates how Singleton is used and the PaymentGUI class shows how I created a Payment object.
-Lazy instantiation.  
- */
-/*
-DECORATOR PATTERN:
-Decorator pattern allows a user to add new functionality to an existing object without altering its structure.
-It acts as a wrapper class to an existing class we may have.  In this case, I am going to assign a bank name to each user
-without altering the BankUserType interface. 
- */
-
 public class Payment {
 
     private static Payment instance = null;
@@ -141,28 +100,28 @@ public class Payment {
     
     protected static void displayAllEmployees() {
 
-        Employee bankManagerChecking = new Employee("Ger", "Manager", 50000);
-        Employee bankTellerChecking = new Employee("Tim", "Bank Teller", 30000);
-        Employee clerkChecking = new Employee("Mike", "Clerk", 25000);
+        Employee managerChecking = new Employee("Ger", "Manager", 50000);
+        Employee handlerChecking = new Employee("Tim", "Handler", 30000);
+        Employee courierChecking = new Employee("Mike", "Courier", 25000);
 
-        Employee bankManagerSavings = new Employee("Shaun", "Manager", 45000);
-        Employee bankTellerSavings = new Employee("Tom", "Bank Teller", 15000);
-        Employee clerkSavings = new Employee("Barack", "Clerk", 25000);
+        Employee managerSavings = new Employee("Shaun", "Manager", 45000);
+        Employee handlerSavings = new Employee("Tom", "Handler", 15000);
+        Employee courierSavings = new Employee("Barack", "Courier", 25000);
 
-        bankManagerChecking.add(bankTellerChecking);
-        bankManagerChecking.add(clerkChecking);
+        managerChecking.add(handlerChecking);
+        managerChecking.add(courierChecking);
 
-        bankManagerSavings.add(bankTellerSavings);
-        bankManagerSavings.add(clerkSavings);
+        managerSavings.add(handlerSavings);
+        managerSavings.add(courierSavings);
 
         if (check == 1) {
-            for (Employee checkingEmployee : bankManagerChecking.getEmployees()) {
+            for (Employee checkingEmployee : managerChecking.getEmployees()) {
                 System.out.println(checkingEmployee);
             }
         }
 
         if (check == 2) {
-            for (Employee savingsEmployee : bankManagerSavings.getEmployees()) {
+            for (Employee savingsEmployee : managerSavings.getEmployees()) {
                 System.out.println(savingsEmployee);
             }
         }
